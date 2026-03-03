@@ -1,0 +1,24 @@
+# Lynis Audit Analyzer — Configuration
+
+# Score thresholds (Lynis hardening_index scale: 0-100)
+score_thresholds:
+  low_risk:    75   # >= this score → risk = low
+  medium_risk: 55   # >= this score → risk = medium
+  high_risk:   35   # >= this score → risk = high
+                    # below high_risk → risk = critical
+
+# Remediation deadlines by severity
+deadlines:
+  high:   "24 hours"
+  medium: "7 days"
+  low:    "30 days"
+
+# Storage
+storage:
+  reports_dir: "data/reports"
+  max_reports: 50        # keep last N scan files (0 = unlimited)
+
+# Lynis
+lynis:
+  report_file: "/var/log/lynis-report.dat"
+  extra_args: []         # additional args passed to lynis audit system
